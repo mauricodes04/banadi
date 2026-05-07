@@ -1,0 +1,22 @@
+{
+  "name": "banadi",
+  "version": "0.2.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "description": "Claude Code wrapper around an isolated kali container for nmap-driven recon and per-port pentest workflow synthesis.",
+  "engines": {
+    "node": ">=20.6"
+  },
+  "scripts": {
+    "doctor": "node lib/doctor.mjs",
+    "recon": "node lib/recon.mjs",
+    "vuln": "node lib/vuln.mjs",
+    "mcp": "node mcp/server.mjs",
+    "mcp:smoke": "node test/mcp-smoke.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "zod": "^3.23.8"
+  }
+}

@@ -1,0 +1,19 @@
+# Normalize line endings on commit. Working-tree files keep platform-native
+# endings on checkout, except where pinned below.
+* text=auto eol=lf
+
+# Shell scripts and Dockerfiles must be LF (run inside the kali container).
+*.sh        text eol=lf
+Dockerfile  text eol=lf
+
+# PowerShell scripts must be CRLF (run on Windows).
+*.ps1       text eol=crlf
+
+# Treat common binary types explicitly so git never tries to diff or merge them.
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.gif       binary
+*.webp      binary
+*.ico       binary
+*.pdf       binary

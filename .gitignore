@@ -1,0 +1,20 @@
+# Runtime state — regenerated per engagement
+engagements/
+output/
+.cache/
+pent/
+
+# Local config
+config/scope.yml
+config/profile.yml
+
+# Claude Code local state
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db

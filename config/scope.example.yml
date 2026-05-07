@@ -1,0 +1,18 @@
+# Advisory scope definition. Copy this file to config/scope.yml and replace
+# the entries with targets you have written authorization to test.
+#
+# lib/scope.mjs emits a stderr warning on mismatch and returns — CLAUDE.md
+# invariant 3 says scope is never a hard refusal at the v0.1 stage.
+#
+# Entry schema:
+#   - value: hostname | CIDR | IP
+#     authorization: free-text note (who authorized, when, expiration, etc.)
+#
+# The values below use RFC 5737 documentation address space and the
+# nmap-maintained scanme.nmap.org host. Replace with your own scope.
+
+targets:
+  - value: 192.0.2.0/24
+    authorization: example documentation network (RFC 5737) — replace
+  - value: scanme.nmap.org
+    authorization: nmap project's public scan target (https://nmap.org/book/legal-issues.html)

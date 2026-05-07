@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "banadi": {
+      "command": "node",
+      "args": ["mcp/server.mjs"],
+      "env": {
+        "BANADI_CONTAINER": "banadi"
+      }
+    }
+  }
+}
