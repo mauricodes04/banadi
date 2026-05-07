@@ -60,15 +60,7 @@ bash scripts/banadi-up.sh                      # Linux/macOS/WSL: builds banadi/
 claude
 ```
 
-Then in Claude Code: `/banadi-doctor` (verifies the container is healthy), `/banadi-recon <target>`, `/banadi-vuln`, `/banadi-cve`.
+Then in Claude Code: `/banadi-doctor`
 
-## Architecture
 
-- **Kali container** (`docker/banadi/Dockerfile`) — isolated environment for nmap, curl, and recon tooling. The host never runs scan tools directly.
-- **MCP server** (`mcp/server.mjs`) — exposes typed tools to Claude Code: `banadi.{exec,curl,write_tmp,read_tmp}`, `nvd.{cve,search,cves_for_service}`, and `engagement://<slug>/{ports.yml,os.yml,scope.yml,transcripts/*}` resources. Wired in `.mcp.json`.
-- **Phase library** (`lib/`) — pure-JS modules for recon, vuln-prep, CVE-prep, scope matching, engagement state. Imported by the MCP server and shelled out to by slash commands.
-- **Slash commands** (`.claude/commands/`) and **prompt modes** (`modes/`) — operator-facing entrypoints that invoke the library + MCP tools.
-- **Per-engagement state** (`engagements/<slug>/`) — `ports.yml`, `os.yml`, `scope.yml`, and JSON transcripts. Gitignored.
-- **Per-port pipelines** (`pent/<port>.mjs`, `pent/<port>.cve.json`) — synthesized exploit/CVE plans. Gitignored.
-
-See [planroom/PLAN.md](planroom/PLAN.md) for the canonical spec and [CLAUDE.md](CLAUDE.md) for runtime invariants.
+See [planroom/PLAN.md](planroom/PLAN.md) for the canonical spec. I hope my planning methods help you with your apps
